@@ -17,6 +17,6 @@ RUN cd /tmp && tar xvzf httpd-$HTTPD_VERSION.tar.gz
 
 
 RUN cd /tmp/httpd-$HTTPD_VERSION && ./configure && make && make install && rm /tmp/* -rf && ln -s /usr/local/apache2/bin/apachectl /usr/sbin/apachectl
-RUN chmod -R 777 /usr/local/apache2/ /usr/local/apache2/ && sed -i "s/80/8080/g" /usr/local/apache2/conf/httpd.conf
+RUN chmod -R 777 /usr/local/apache2/ && sed -i "s/80/8080/g" /usr/local/apache2/conf/httpd.conf
 ENTRYPOINT [ "/usr/sbin/apachectl" ]
 CMD ["-D", "FOREGROUND"]
