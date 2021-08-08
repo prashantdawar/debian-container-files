@@ -3,11 +3,20 @@ FROM quay.io/prashantdawar/debian-containers:buster
 LABEL maintainer="prashantdawar.2008@gmail.com"
 RUN apt update && \
     apt upgrade -y && \
-    apt install -y apache2 && \
+    apt install -y libapr1-dev libaprutil1-dev build-essential libpcre3-dev && \
     apt clean
 
 
 
 EXPOSE 8080
-RUN service apache2 start
-CMD ["/usr/sbin/apachectl", "-D", "FOREGROUND"]
+ENV HTTPD_VERSION=2.4.3
+RUN cd /tmp && wget https://archive.apache.org/dist/httpd/httpd-$HTTPD_VERSION.tar.gz  
+
+RUN mkdir -p /usr/local/apache2
+RUN cd /tmp && tar xvzf httpd-$HTTPD_VERSION.tar.gz
+
+
+RUN cd /tmp/httpd-$HTTPD_VERSION && ./configure && make && make install && rm /tmp/* -rf && ln -s /usr/local/apache2/bin/apachectl /usr/sbin/apachectl
+RUN chmod 777 /usr/local/apache2/logs/ && sed -i "s/80/8080/g" /usr/local/apache2/conf/httpd.conf
+ENTRYPOINT [ "/usr/sbin/apachectl" ]
+CMD ["-D", "FOREGROUND"]
