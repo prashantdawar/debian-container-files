@@ -2,4 +2,4 @@
 
 Debian Buster Apache ContainerFile
 
-Repo Link: quay.io/prashantdawar/debian-containers:buster-apache
+Repo Link: quay.io/prashantdawar/debian-containers:buster-httpd
