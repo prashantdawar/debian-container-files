@@ -3,5 +3,5 @@ FROM docker.io/library/debian:buster
 LABEL maintainer="prashantdawar.2008@gmail.com"
 RUN apt update && \
     apt upgrade -y && \
-    apt install -y htop curl wget nload vnstat vim nano && \
+    apt install -y htop curl wget nload vnstat vim nano git unzip && \
     apt clean
