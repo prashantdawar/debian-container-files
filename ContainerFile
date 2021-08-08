@@ -9,5 +9,5 @@ RUN apt update && \
 
 
 EXPOSE 8080
-# RUN service apache2 start
+RUN service apache2 start
 CMD ["/usr/sbin/apachectl", "-D", "FOREGROUND"]
