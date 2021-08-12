@@ -5,3 +5,8 @@ RUN apt update && \
     apt upgrade -y && \
     apt install -y htop curl wget nload vnstat vim nano git unzip && \
     apt clean
+
+
+
+ENTRYPOINT ["tail"]
+CMD ["-f","/dev/null"]
