@@ -2,3 +2,6 @@ FROM docker.io/library/debian:latest
 
 LABEL maintainer="prashantdawar.2008@gmail.com"
 RUN apt update && apt upgrade -y && apt clean
+
+ENTRYPOINT ["tail"]
+CMD ["-f","/dev/null"]
