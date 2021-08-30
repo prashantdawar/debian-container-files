@@ -10,7 +10,7 @@ Repo Link: quay.io/prashantdawar/debian-containers:buster
 
 Image Build:
 
-    podman build -t quay/io/prashantdawar/debian-containers:buster -f ContainerFile .
+    podman build -t quay.io/prashantdawar/debian-containers:buster -f ContainerFile .
 
 
 
