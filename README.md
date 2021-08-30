@@ -12,9 +12,7 @@ Image Build:
 
 
 
-    podman build \
-    -t quay/io/prashantdawar/debian-containers:buster-httpd \
-    -f ContainerFile .
+    podman build -t quay.io/prashantdawar/debian-containers:buster-httpd -f ContainerFile .
 
 Container Starting:
 (as root user) 
