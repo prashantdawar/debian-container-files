@@ -10,7 +10,7 @@ Repo Link: quay.io/prashantdawar/debian-containers:latest
 
 Image Build:
 
-    podman build -t quay/io/prashantdawar/debian-containers:latest -f ContainerFile .
+    podman build -t quay.io/prashantdawar/debian-containers:latest -f ContainerFile .
 
 
 
